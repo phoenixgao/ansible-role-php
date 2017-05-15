@@ -1,0 +1,38 @@
+---
+-
+    name: Add apt repository
+    apt_repository:
+        repo: "{{ php_apt_repository }}"
+        state: present
+    when: php_apt_repository != false
+-
+    name: "Install php and php-fpm (version: {{ php_version }})"
+    apt:
+        name: "{{ item }}"
+    with_items:
+        - "php{{ php_version }}"
+        - "php{{ php_version }}-fpm"
+-
+    name: Install php extensions
+    apt:
+        name: "{{ item }}"
+    with_items:
+        - "php{{ php_version }}-curl"
+        - "php{{ php_version }}-gd"
+        - "php{{ php_version }}-json"
+        - "php{{ php_version }}-mbstring"
+        - "php{{ php_version }}-mcrypt"
+        - "php{{ php_version }}-mysql"
+        - "php{{ php_version }}-opcache"
+        - "php{{ php_version }}-xml"
+        - "php{{ php_version }}-zip"
+
+-
+    name: Tune php configurations
+    command: "echo 1"
+
+-
+    name: Reload php-fpm
+    service:
+        name: "php{{ php_version }}-fpm"
+        state: restarted

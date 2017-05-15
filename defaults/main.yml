@@ -1,0 +1,3 @@
+---
+php_apt_repository: false
+php_version: 7.0
