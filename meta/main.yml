@@ -1,0 +1,18 @@
+galaxy_info:
+    author: "Phoenix Gao"
+    license: MIT
+    description: "Install PHP"
+    min_ansible_version: 1.9
+    platforms:
+        -
+            name: Debian
+            versions:
+                - jessie
+        -
+            name: Ubuntu
+            versions:
+                - trusty
+                - xenial
+    categories:
+        - system
+dependencies: []
