@@ -1,5 +1,12 @@
 # Ansible Role PHP
 
+https://galaxy.ansible.com/phoenixgao/php/
+
+## Install
+```bash
+ansible-galaxy install phoenixgao.php
+````
+
 ## Variables
 ```yml
 # Whether to use a custom apt repository, default to false, could be "ppa:ondrej/php"
