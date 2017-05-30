@@ -30,19 +30,16 @@
         - "php-pear"
 
 # Install phpize
--   name: Install rdkafka pecl extension
-    pear: 
-        name: rdkafka
-        state: present
-
 -   name: Install librdkafka
     command: cd /tmp;wget -N https://github.com/edenhill/librdkafka/archive/master.tar.gz -O librdkafka.tar.gz; tar -xvf librdkafka.tar.gz; rm -f librdkafka.tar.gz;cd librdkafka-master;./configure;make;sudo make install
+    when: php_rdkafka
 
 # Install pear package
 -   name: Install rdkafka pecl extension
-    pear: 
+    pear:
         name: rdkafka
         state: present
+    when: php_rdkafka
 -
     name: Tune php configurations
     command: "echo 1"
