@@ -26,7 +26,23 @@
         - "php{{ php_version }}-opcache"
         - "php{{ php_version }}-xml"
         - "php{{ php_version }}-zip"
+        - "php{{ php_version }}-dev"
+        - "php-pear"
 
+# Install phpize
+-   name: Install rdkafka pecl extension
+    pear: 
+        name: rdkafka
+        state: present
+
+-   name: Install librdkafka
+    command: cd /tmp;wget -N https://github.com/edenhill/librdkafka/archive/master.tar.gz -O librdkafka.tar.gz; tar -xvf librdkafka.tar.gz; rm -f librdkafka.tar.gz;cd librdkafka-master;./configure;make;sudo make install
+
+# Install pear package
+-   name: Install rdkafka pecl extension
+    pear: 
+        name: rdkafka
+        state: present
 -
     name: Tune php configurations
     command: "echo 1"
