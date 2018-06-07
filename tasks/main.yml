@@ -21,12 +21,10 @@
         - "php{{ php_version }}-gd"
         - "php{{ php_version }}-json"
         - "php{{ php_version }}-mbstring"
-        - "php{{ php_version }}-mcrypt"
         - "php{{ php_version }}-mysql"
         - "php{{ php_version }}-opcache"
         - "php{{ php_version }}-xml"
         - "php{{ php_version }}-zip"
-        - "php{{ php_version }}-dev"
         - "php-pear"
 
 # Install phpize
